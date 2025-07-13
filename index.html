@@ -3,21 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Android Developer Portfolio - Junaid</title>
+  <title>Junaid - Android Developer Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg-color: #f9f9f9;
+      --text-color: #222;
+      --card-bg: white;
+      --header-bg: #0d47a1;
+    }
+    [data-theme="dark"] {
+      --bg-color: #121212;
+      --text-color: #eee;
+      --card-bg: #1e1e1e;
+      --header-bg: #1a237e;
+    }
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
       padding: 0;
-      background: #f9f9f9;
-      color: #222;
+      background: var(--bg-color);
+      color: var(--text-color);
+      transition: background 0.3s, color 0.3s;
     }
     header {
-      background: #0d47a1;
+      background: var(--header-bg);
       color: white;
       padding: 40px 20px;
       text-align: center;
+      position: relative;
+    }
+    .dark-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 1.5rem;
+      cursor: pointer;
     }
     header h1 {
       margin: 0;
@@ -39,7 +60,7 @@
       font-size: 1.8rem;
     }
     .project {
-      background: white;
+      background: var(--card-bg);
       padding: 20px;
       border-radius: 8px;
       margin-bottom: 20px;
@@ -52,6 +73,38 @@
       color: #0d47a1;
       text-decoration: none;
     }
+    .download-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background: #0d47a1;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    input, textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      background: var(--card-bg);
+      color: var(--text-color);
+    }
+    button {
+      background: #0d47a1;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
     footer {
       background: #eee;
       text-align: center;
@@ -63,8 +116,10 @@
 </head>
 <body>
   <header>
+    <div class="dark-toggle" onclick="toggleDarkMode()">🌙</div>
     <h1>Junaid - Senior Android Developer</h1>
     <p>5+ years of experience | Kotlin, Java, Firebase, Jetpack, Compose, MVVM</p>
+    <a class="download-btn" href="https://drive.google.com/uc?export=download&id=13vXdhNwxDevut2jBYwKuzBQTq_Vnv9_n" target="_blank">Download CV</a>
   </header>
 
   <section>
@@ -90,36 +145,49 @@
     <h2>Projects</h2>
 
     <div class="project">
-      <h3>Service Market App</h3>
-      <p>A home services platform with authentication, chat, and booking system. Built using Firebase, Jetpack libraries, and Kotlin.</p>
-      <p><strong>Tech Used:</strong> Kotlin, Firebase, MVVM, Retrofit</p>
-      <p><a href="#">[Link to App or GitHub]</a></p>
+      <h3>Service Market</h3>
+      <p>Home services platform used by thousands of users across the UAE. Features include onboarding, scheduling, Firebase-based chat, in-app notifications, service provider rating, and multi-role management.</p>
+      <p><strong>Tech Used:</strong> Kotlin, Firebase, MVVM, Retrofit, Hilt</p>
+      <p><a href="#">(Private, live on store)</a></p>
     </div>
 
     <div class="project">
       <h3>Notebook App with ML Kit</h3>
-      <p>Personal note-taking app with image OCR label detection, dark mode, and Firebase + Room sync.</p>
+      <p>Note-taking app that auto-fills details from images using ML Kit. Supports local Room + Firebase sync and dark/light themes.</p>
       <p><strong>Tech Used:</strong> Kotlin, ML Kit, Room, Firebase</p>
-      <p><a href="#">[Link to App or GitHub]</a></p>
+      <p><a href="#">[Link to GitHub]</a></p>
     </div>
 
     <div class="project">
       <h3>Chat App</h3>
-      <p>Realtime chat app with phone auth, groups, stories, voice/video calls, fingerprint lock, and modern UI.</p>
+      <p>Real-time chat app with voice/video calling, phone auth, stories, and fingerprint lock.</p>
       <p><strong>Tech Used:</strong> Kotlin, Firebase, MVVM, WebRTC</p>
-      <p><a href="#">[Link to App or GitHub]</a></p>
+      <p><a href="#">[Link to GitHub]</a></p>
     </div>
   </section>
 
   <section>
-    <h2>Contact</h2>
-    <p>Email: your.email@example.com</p>
-    <p>GitHub: <a href="https://github.com/yourusername">github.com/yourusername</a></p>
-    <p>Upwork: <a href="https://www.upwork.com/freelancers/~yourprofile">Upwork Profile</a></p>
+    <h2>Contact Me</h2>
+    <form>
+      <input type="text" placeholder="Your name" required />
+      <input type="email" placeholder="Your email" required />
+      <textarea rows="4" placeholder="Your message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <p>Or email me directly: <a href="mailto:muhammadjunaidbashir714@gmail.com">muhammadjunaidbashir714@gmail.com</a></p>
   </section>
 
   <footer>
     &copy; 2025 Junaid. All rights reserved.
   </footer>
+
+  <script>
+    function toggleDarkMode() {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const isDark = currentTheme === 'dark';
+      document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+      document.querySelector('.dark-toggle').textContent = isDark ? '🌙' : '☀️';
+    }
+  </script>
 </body>
 </html>
