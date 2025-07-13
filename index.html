@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Junaid - Android Developer</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <style>
     * {
       margin: 0;
@@ -65,6 +66,24 @@
       font-size: 0.9rem;
       color: #555;
     }
+    .dark-toggle {
+      margin-top: 10px;
+    }
+    .dark-toggle label {
+      font-weight: bold;
+      color: #0d47a1;
+      margin-right: 10px;
+    }
+    .dark-toggle input {
+      transform: scale(1.3);
+      cursor: pointer;
+    }
+    #typed-output {
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #444;
+      margin: 20px 0;
+    }
     @media (max-width: 600px) {
       body {
         padding: 20px 10px;
@@ -78,8 +97,12 @@
 <body>
   <header>
     <h1>Junaid Bashir</h1>
-    <p>Senior Android Developer with 5+ years of experience</p>
+    <div id="typed-output"></div>
     <a class="download" href="https://drive.google.com/uc?export=download&id=13vXdhNwxDevut2jBYwKuzBQTq_Vnv9_n" download>Download CV</a>
+    <div class="dark-toggle">
+      <label for="darkMode">Dark Mode</label>
+      <input type="checkbox" id="darkMode" onclick="toggleDarkMode()" />
+    </div>
   </header>
 
   <section class="section">
@@ -123,5 +146,24 @@
   <footer class="contact">
     &copy; 2025 Junaid Bashir. All rights reserved.
   </footer>
+
+  <script>
+    const typed = new Typed("#typed-output", {
+      strings: [
+        "Hey there! I'm Junaid,",
+        "A passionate Mobile App Developer.",
+        "Skilled in Android, Kotlin, Firebase & Jetpack Compose!"
+      ],
+      typeSpeed: 50,
+      backSpeed: 25,
+      loop: true
+    });
+
+    function toggleDarkMode() {
+      const isDark = document.body.classList.toggle("dark-mode");
+      document.body.style.background = isDark ? "#121212" : "#ffffff";
+      document.body.style.color = isDark ? "#eee" : "#333";
+    }
+  </script>
 </body>
 </html>
