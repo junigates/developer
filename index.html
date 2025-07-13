@@ -1,272 +1,127 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Junaid - Android Developer Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <title>Junaid - Android Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg-color: #f0f2f5;
-      --text-color: #222;
-      --card-bg: #ffffff;
-      --header-bg: linear-gradient(135deg, #1e88e5, #1565c0);
-      --accent: #0d47a1;
-    }
-    [data-theme="dark"] {
-      --bg-color: #121212;
-      --text-color: #eee;
-      --card-bg: #1e1e1e;
-      --header-bg: linear-gradient(135deg, #1a237e, #0d47a1);
-    }
     * {
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Inter', sans-serif;
       margin: 0;
       padding: 0;
-      background: var(--bg-color);
-      color: var(--text-color);
-      transition: background 0.3s ease, color 0.3s ease;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
     }
-    header {
-      background: var(--header-bg);
-      color: white;
-      padding: 60px 20px 40px;
-      text-align: center;
-      position: relative;
-    }
-    .dark-toggle {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 3rem;
-    }
-    header p {
-      font-size: 1.2rem;
-      margin-top: 10px;
-    }
-    .download-btn {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 24px;
-      background: white;
-      color: var(--accent);
-      text-decoration: none;
-      border-radius: 30px;
-      font-weight: 600;
-      transition: background 0.2s ease;
-    }
-    .download-btn:hover {
-      background: #f0f0f0;
-    }
-    section {
-      padding: 60px 20px;
-      max-width: 1200px;
+    body {
+      background: #ffffff;
+      color: #333;
+      line-height: 1.6;
+      padding: 40px 20px;
+      max-width: 800px;
       margin: auto;
-      width: 100%;
+    }
+    h1, h2, h3 {
+      font-weight: 700;
+      color: #0d47a1;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
     }
     h2 {
-      border-left: 6px solid var(--accent);
-      padding-left: 12px;
-      margin-bottom: 30px;
-      font-size: 2rem;
+      font-size: 1.5rem;
+      margin: 30px 0 10px;
+      border-bottom: 2px solid #0d47a1;
+      padding-bottom: 5px;
     }
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-      gap: 20px;
+    h3 {
+      margin: 10px 0 5px;
     }
-    .skill-icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      background: var(--card-bg);
-      padding: 14px;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-      font-weight: bold;
-    }
-    .skill-icon i {
-      font-size: 1.3rem;
-      color: var(--accent);
-    }
-    .project {
-      background: var(--card-bg);
-      padding: 24px;
-      border-radius: 12px;
-      margin-bottom: 30px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    }
-    .project h3 {
-      margin-top: 0;
-    }
-    .project a {
-      color: var(--accent);
+    a {
+      color: #0d47a1;
       text-decoration: none;
     }
-    .filter-btns {
+    p {
+      margin-bottom: 10px;
+    }
+    ul {
+      margin: 10px 0 20px;
+      padding-left: 20px;
+    }
+    .section {
       margin-bottom: 30px;
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
     }
-    .filter-btns button {
+    .download {
+      display: inline-block;
+      margin: 20px 0;
       padding: 10px 20px;
-      border: none;
-      background: var(--accent);
+      background: #0d47a1;
       color: white;
-      border-radius: 20px;
-      cursor: pointer;
-      font-weight: 600;
+      border-radius: 4px;
+      text-decoration: none;
     }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      margin-top: 20px;
-    }
-    input, textarea {
-      padding: 14px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 1rem;
-      background: var(--card-bg);
-      color: var(--text-color);
-    }
-    button[type="submit"] {
-      background: var(--accent);
-      color: white;
-      padding: 14px;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      cursor: pointer;
-      font-weight: 600;
-    }
-    footer {
-      background: #eaeaea;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.95rem;
+    .contact {
+      margin-top: 40px;
+      font-size: 0.9rem;
       color: #555;
     }
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2rem;
+    @media (max-width: 600px) {
+      body {
+        padding: 20px 10px;
       }
-      .download-btn {
-        font-size: 0.9rem;
-        padding: 10px 20px;
+      h1 {
+        font-size: 2rem;
       }
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="dark-toggle" onclick="toggleDarkMode()">🌙</div>
-    <h1 data-aos="fade-down">Junaid - Senior Android Developer</h1>
-    <p data-aos="fade-up">5+ years of experience | Kotlin, Java, Firebase, Jetpack, Compose, MVVM</p>
-    <a class="download-btn" href="https://drive.google.com/uc?export=download&id=13vXdhNwxDevut2jBYwKuzBQTq_Vnv9_n" download>Download CV</a>
+    <h1>Junaid Bashir</h1>
+    <p>Senior Android Developer with 5+ years of experience</p>
+    <a class="download" href="https://drive.google.com/uc?export=download&id=13vXdhNwxDevut2jBYwKuzBQTq_Vnv9_n" download>Download CV</a>
   </header>
 
-  <section>
+  <section class="section">
     <h2>About Me</h2>
-    <p data-aos="fade-up">
-      I'm a professional Android Developer with over 5 years of experience in building modern, scalable, and performance-driven mobile apps. I specialize in Kotlin, Jetpack Compose, MVVM architecture, and Firebase integration. I’ve successfully developed and deployed numerous apps on the Google Play Store.
-    </p>
+    <p>I’m an experienced Android developer specializing in Kotlin, Jetpack Compose, and Firebase. I’ve worked on complex projects including chat apps, notebooks with ML integration, and large-scale service platforms.</p>
   </section>
 
-  <section>
+  <section class="section">
     <h2>Skills</h2>
-    <div class="skills-grid" data-aos="fade-up">
-      <div class="skill-icon"><i class="fab fa-android"></i> Android</div>
-      <div class="skill-icon"><i class="fab fa-korvue"></i> Kotlin</div>
-      <div class="skill-icon"><i class="fab fa-java"></i> Java</div>
-      <div class="skill-icon"><i class="fas fa-database"></i> Room</div>
-      <div class="skill-icon"><i class="fas fa-code"></i> Jetpack Compose</div>
-      <div class="skill-icon"><i class="fas fa-fire"></i> Firebase</div>
-      <div class="skill-icon"><i class="fas fa-project-diagram"></i> MVVM</div>
-      <div class="skill-icon"><i class="fas fa-lock"></i> Dagger/Hilt</div>
-      <div class="skill-icon"><i class="fas fa-network-wired"></i> Retrofit</div>
-    </div>
+    <ul>
+      <li>Kotlin, Java</li>
+      <li>Jetpack Compose, XML</li>
+      <li>MVVM, Clean Architecture</li>
+      <li>Firebase, Room, Retrofit</li>
+      <li>Hilt / Dagger, WorkManager</li>
+      <li>Unit Testing, Git/GitHub</li>
+    </ul>
   </section>
 
-  <section>
+  <section class="section">
     <h2>Projects</h2>
-    <div class="filter-btns" data-aos="fade-up">
-      <button onclick="filterProjects('all')">All</button>
-      <button onclick="filterProjects('firebase')">Firebase</button>
-      <button onclick="filterProjects('jetpack')">Jetpack Compose</button>
-    </div>
+    <h3>Service Market</h3>
+    <p>A home service platform used in UAE with features like scheduling, role-based login, chat, and service tracking.</p>
+    <p><strong>Stack:</strong> Kotlin, Firebase, MVVM, Hilt</p>
 
-    <div class="project" data-type="firebase">
-      <h3>Service Market</h3>
-      <p>Home services platform used by thousands of users across the UAE. Features include onboarding, scheduling, Firebase-based chat, in-app notifications, service provider rating, and multi-role management.</p>
-      <p><strong>Tech Used:</strong> Kotlin, Firebase, MVVM, Retrofit, Hilt</p>
-      <p><a href="#">(Private, live on store)</a></p>
-    </div>
+    <h3>Notebook App with ML Kit</h3>
+    <p>Smart notes app that detects text and labels from images using ML Kit and syncs with Firebase.</p>
+    <p><strong>Stack:</strong> Kotlin, Room, Firebase, ML Kit</p>
 
-    <div class="project" data-type="firebase jetpack">
-      <h3>Notebook App with ML Kit</h3>
-      <p>Note-taking app that auto-fills details from images using ML Kit. Supports local Room + Firebase sync and dark/light themes.</p>
-      <p><strong>Tech Used:</strong> Kotlin, ML Kit, Room, Firebase</p>
-      <p><a href="#">[Link to GitHub]</a></p>
-    </div>
-
-    <div class="project" data-type="firebase">
-      <h3>Chat App</h3>
-      <p>Real-time chat app with voice/video calling, phone auth, stories, and fingerprint lock.</p>
-      <p><strong>Tech Used:</strong> Kotlin, Firebase, MVVM, WebRTC</p>
-      <p><a href="#">[Link to GitHub]</a></p>
-    </div>
+    <h3>Chat App</h3>
+    <p>Real-time chat app with stories, phone auth, fingerprint lock, and WebRTC calls.</p>
+    <p><strong>Stack:</strong> Kotlin, Firebase, WebRTC</p>
   </section>
 
-  <section>
-    <h2>Contact Me</h2>
-    <form action="https://formspree.io/f/mwkgngbp" method="POST" data-aos="fade-up">
-      <input type="text" name="name" placeholder="Your name" required />
-      <input type="email" name="email" placeholder="Your email" required />
-      <textarea name="message" rows="4" placeholder="Your message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-    <p>Or email me directly: <a href="mailto:muhammadjunaidbashir714@gmail.com">muhammadjunaidbashir714@gmail.com</a></p>
+  <section class="section">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:muhammadjunaidbashir714@gmail.com">muhammadjunaidbashir714@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/junigates" target="_blank">github.com/junigates</a></p>
   </section>
 
-  <footer>
-    &copy; 2025 Junaid. All rights reserved.
+  <footer class="contact">
+    &copy; 2025 Junaid Bashir. All rights reserved.
   </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    AOS.init();
-
-    function toggleDarkMode() {
-      const currentTheme = document.documentElement.getAttribute('data-theme');
-      const isDark = currentTheme === 'dark';
-      document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
-      document.querySelector('.dark-toggle').textContent = isDark ? '🌙' : '☀️';
-    }
-
-    function filterProjects(type) {
-      const projects = document.querySelectorAll('.project');
-      projects.forEach(project => {
-        const types = project.getAttribute('data-type').split(' ');
-        if (type === 'all' || types.includes(type)) {
-          project.style.display = 'block';
-        } else {
-          project.style.display = 'none';
-        }
-      });
-    }
-  </script>
 </body>
 </html>
