@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Junaid - Android Developer Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
     :root {
       --bg-color: #f9f9f9;
@@ -59,6 +61,24 @@
       margin-bottom: 20px;
       font-size: 1.8rem;
     }
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    .skill-icon {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--card-bg);
+      padding: 8px 14px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    .skill-icon i {
+      font-size: 1.2rem;
+      color: #0d47a1;
+    }
     .project {
       background: var(--card-bg);
       padding: 20px;
@@ -86,6 +106,18 @@
     .download-btn::after {
       content: "\21E9";
       padding-left: 8px;
+    }
+    .filter-btns {
+      margin-bottom: 20px;
+    }
+    .filter-btns button {
+      margin-right: 10px;
+      padding: 8px 16px;
+      border: none;
+      background: #0d47a1;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
     }
     form {
       display: flex;
@@ -121,48 +153,56 @@
 <body>
   <header>
     <div class="dark-toggle" onclick="toggleDarkMode()">🌙</div>
-    <h1>Junaid - Senior Android Developer</h1>
-    <p>5+ years of experience | Kotlin, Java, Firebase, Jetpack, Compose, MVVM</p>
+    <h1 data-aos="fade-down">Junaid - Senior Android Developer</h1>
+    <p data-aos="fade-up">5+ years of experience | Kotlin, Java, Firebase, Jetpack, Compose, MVVM</p>
     <a class="download-btn" href="https://drive.google.com/uc?export=download&id=13vXdhNwxDevut2jBYwKuzBQTq_Vnv9_n" download>Download CV</a>
   </header>
 
   <section>
     <h2>About Me</h2>
-    <p>
+    <p data-aos="fade-up">
       I'm a professional Android Developer with over 5 years of experience in building modern, scalable, and performance-driven mobile apps. I specialize in Kotlin, Jetpack Compose, MVVM architecture, and Firebase integration. I’ve successfully developed and deployed numerous apps on the Google Play Store.
     </p>
   </section>
 
   <section>
     <h2>Skills</h2>
-    <ul>
-      <li>Kotlin, Java</li>
-      <li>Jetpack Compose, XML UI</li>
-      <li>MVVM, Clean Architecture</li>
-      <li>Firebase, Room, Retrofit</li>
-      <li>Hilt / Dagger, WorkManager</li>
-      <li>Unit Testing, Git, GitHub</li>
-    </ul>
+    <div class="skills-grid" data-aos="fade-up">
+      <div class="skill-icon"><i class="fab fa-android"></i> Android</div>
+      <div class="skill-icon"><i class="fab fa-korvue"></i> Kotlin</div>
+      <div class="skill-icon"><i class="fab fa-java"></i> Java</div>
+      <div class="skill-icon"><i class="fas fa-database"></i> Room</div>
+      <div class="skill-icon"><i class="fas fa-code"></i> Jetpack Compose</div>
+      <div class="skill-icon"><i class="fas fa-fire"></i> Firebase</div>
+      <div class="skill-icon"><i class="fas fa-project-diagram"></i> MVVM</div>
+      <div class="skill-icon"><i class="fas fa-lock"></i> Dagger/Hilt</div>
+      <div class="skill-icon"><i class="fas fa-network-wired"></i> Retrofit</div>
+    </div>
   </section>
 
   <section>
     <h2>Projects</h2>
+    <div class="filter-btns" data-aos="fade-up">
+      <button onclick="filterProjects('all')">All</button>
+      <button onclick="filterProjects('firebase')">Firebase</button>
+      <button onclick="filterProjects('jetpack')">Jetpack Compose</button>
+    </div>
 
-    <div class="project">
+    <div class="project" data-type="firebase">
       <h3>Service Market</h3>
       <p>Home services platform used by thousands of users across the UAE. Features include onboarding, scheduling, Firebase-based chat, in-app notifications, service provider rating, and multi-role management.</p>
       <p><strong>Tech Used:</strong> Kotlin, Firebase, MVVM, Retrofit, Hilt</p>
       <p><a href="#">(Private, live on store)</a></p>
     </div>
 
-    <div class="project">
+    <div class="project" data-type="firebase jetpack">
       <h3>Notebook App with ML Kit</h3>
       <p>Note-taking app that auto-fills details from images using ML Kit. Supports local Room + Firebase sync and dark/light themes.</p>
       <p><strong>Tech Used:</strong> Kotlin, ML Kit, Room, Firebase</p>
       <p><a href="#">[Link to GitHub]</a></p>
     </div>
 
-    <div class="project">
+    <div class="project" data-type="firebase">
       <h3>Chat App</h3>
       <p>Real-time chat app with voice/video calling, phone auth, stories, and fingerprint lock.</p>
       <p><strong>Tech Used:</strong> Kotlin, Firebase, MVVM, WebRTC</p>
@@ -172,10 +212,10 @@
 
   <section>
     <h2>Contact Me</h2>
-    <form>
-      <input type="text" placeholder="Your name" required />
-      <input type="email" placeholder="Your email" required />
-      <textarea rows="4" placeholder="Your message" required></textarea>
+    <form action="https://formspree.io/f/mwkgngbp" method="POST" data-aos="fade-up">
+      <input type="text" name="name" placeholder="Your name" required />
+      <input type="email" name="email" placeholder="Your email" required />
+      <textarea name="message" rows="4" placeholder="Your message" required></textarea>
       <button type="submit">Send Message</button>
     </form>
     <p>Or email me directly: <a href="mailto:muhammadjunaidbashir714@gmail.com">muhammadjunaidbashir714@gmail.com</a></p>
@@ -185,12 +225,27 @@
     &copy; 2025 Junaid. All rights reserved.
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
+    AOS.init();
+
     function toggleDarkMode() {
       const currentTheme = document.documentElement.getAttribute('data-theme');
       const isDark = currentTheme === 'dark';
       document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
       document.querySelector('.dark-toggle').textContent = isDark ? '🌙' : '☀️';
+    }
+
+    function filterProjects(type) {
+      const projects = document.querySelectorAll('.project');
+      projects.forEach(project => {
+        const types = project.getAttribute('data-type').split(' ');
+        if (type === 'all' || types.includes(type)) {
+          project.style.display = 'block';
+        } else {
+          project.style.display = 'none';
+        }
+      });
     }
   </script>
 </body>
